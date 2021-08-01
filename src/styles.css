@@ -1,84 +1,105 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-a:link{
-  text-decoration: none;
-}
+/** {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  font-weight: 500 !important;*/
+/*}*/
+/*a:link{*/
+/*  text-decoration: none;*/
+/*}*/
 
-.spacer {
-  flex: 1 1 auto;
-}
+/*.spacer {*/
+/*  flex: 1 1 auto;*/
+/*}*/
 
-.titleNav {
-  margin-left: 20px;
-}
-.mat-icon-button{
-  width: 40px;
-  height: 40px;
-  font-size: 1.2rem;
-}
-.mat-icon{
-  line-height: 1.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-#sidenavContainer {
-  margin-top: 64px;
-}
+/*.titleNav {*/
+/*  margin-left: 5px;*/
+/*  text-transform: uppercase;*/
+/*  font-family: 'Denk One', sans-serif;*/
+/*}*/
+/*.mat-icon-button{*/
+/*  width: 40px;*/
+/*  height: 40px;*/
+/*  font-size: 1.2rem;*/
+/*}*/
+/*.mat-icon{*/
+/*  line-height: 1.5rem;*/
+/*  font-size: 1.2rem;*/
+/*  font-weight: 600;*/
+/*}*/
+/*#sidenavContainer {*/
+/*  margin-top: 64px;*/
+/*}*/
 
-.mat-sidenav.menu-open {
-  width: 240px;
-}
+/*.mat-sidenav.menu-open {*/
+/*  width: 240px;*/
+/*}*/
 
-.mat-sidenav.menu-close {
-  width: 70px;
-  height: 100vh;
-}
+/*.mat-sidenav.menu-close {*/
+/*  width: 70px;*/
+/*  height: 100vh;*/
+/*}*/
 
-.mat-list-item-content {
-  padding: 0px !important
-}
+/*.mat-list-item-content {*/
+/*  padding: 0px !important*/
+/*}*/
 
-.menu-items {
-  width: 100%;
-  text-align: left !important;
-  border-radius: 0px !important;
-  padding: 10px;
-  display: flex;
-  align-items: center
-}
+/*.menu-items {*/
+/*  width: 100%;*/
+/*  text-align: left !important;*/
+/*  border-radius: 0px !important;*/
+/*  padding: 10px;*/
+/*  display: flex;*/
+/*  align-items: center*/
+/*}*/
 
-.mat-drawer {
-  background-color: #fff;
-  color: #fff;
-}
+/*.mat-drawer {*/
+/*  background-color: #fff;*/
+/*  color: #fff;*/
+/*}*/
 
-.main-content {
-  padding: 20px;
-}
+/*.main-content {*/
+/*  padding: 20px;*/
+/*}*/
 
-.menu-items .mat-icon {
-  font-size: 1.2rem;
-  padding-left: 10px;
-  margin-right: 30px;
-}
+/*.menu-items .mat-icon {*/
+/*  font-size: 1.2rem;*/
+/*  padding-left: 10px;*/
+/*  margin-right: 30px;*/
+/*}*/
 
-.example-card {
-  max-width: 300px;
-  margin: 20px 40px;
-}
+/*.example-card {*/
+/*  max-width: 300px;*/
+/*  margin: 20px 40px;*/
+/*}*/
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/*!*.container {*!*/
+/*!*  display: flex;*!*/
+/*!*  justify-content: center;*!*/
+/*!*  align-items: center;*!*/
+/*!*}*!*/
 
-.example-header-image {
-  background-image: url('https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/natural_oils_overview_slideshow/650x350_natural_oils_overview_slideshow.jpg');
-  background-size: cover;
-}
-/*.mat-sidenav-content{*/
-/*  margin-left: 70px;*/
+/*.example-header-image {*/
+/*  background-image: url('https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/natural_oils_overview_slideshow/650x350_natural_oils_overview_slideshow.jpg');*/
+/*  background-size: cover;*/
+/*}*/
+/*!*.mat-sidenav-content{*!*/
+/*!*  margin-left: 70px;*!*/
+/*!*}*!*/
+
+
+/*!*registration page*!*/
+/*.fxFlexFill{*/
+/*  margin-top: 70px;*/
+/*}*/
+/*.example-form {*/
+/*  min-width: 150px;*/
+/*  max-width: 500px;*/
+/*  width: 100%;*/
+/*}*/
+
+/*.example-full-width {*/
+/*  width: 100%;*/
+/*}*/
+/*.mat-toolbar{*/
+/*  margin-bottom: 20px;*/
 /*}*/

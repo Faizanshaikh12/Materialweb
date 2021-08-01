@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  isMenuOpen = true;
-
-  constructor() { }
+  constructor(private router: Router, private auth: AuthService) {
+  }
 
   ngOnInit(): void {
-  }
-  onToolbarMenuToggle(): void{
-    this.isMenuOpen = !this.isMenuOpen;
+    this.auth.isLoggedIn();
   }
 
+  logout(): void {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
+  }
+
+  isLoggedIn() {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    }
+    return false;
+  }
 }

@@ -1,13 +1,12 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-  <button mat-mini-fab mat-raised-button color="accent" (click)="onToolbarMenuToggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span class="titleNav">Material Webs</span>
+  <a routerLink="/"><img mat-card-image src="assets/images/logo.png" style="width: 50px; margin: 5px"></a>
+  <span class="titleNav">Attendance Manager</span>
   <div class="spacer"></div>
-  <a mat-flat-button color="primary">Home</a>
-  <a mat-flat-button routerLink="services" color="primary">Services</a>
-  <a mat-flat-button color="primary">Projects</a>
-  <a mat-flat-button color="primary">About</a>
-  <a mat-flat-button color="primary">Login</a>
-  <a mat-flat-button color="accent">Sign Up</a>
+  <a mat-flat-button color="primary" *ngIf="isLoggedIn()" routerLink="/">Home</a>
+  <a mat-flat-button routerLink="services" color="primary" *ngIf="isLoggedIn()">Services</a>
+  <a mat-flat-button color="primary" *ngIf="isLoggedIn()">Projects</a>
+  <a mat-flat-button color="primary" *ngIf="isLoggedIn()">About</a>
+  <a mat-flat-button (click)="logout()" [routerLink]="['/login']" color="primary" *ngIf="isLoggedIn()">Logout</a>
+  <a mat-flat-button routerLink="/login" color="primary" style="text-decoration: none" *ngIf="!isLoggedIn()">Login</a>
+  <a mat-flat-button routerLink="register" style="text-decoration: none; background-color: #ffc800; color: #fff" *ngIf="!isLoggedIn()">Sign Up</a>
 </mat-toolbar>
