@@ -98,6 +98,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     DefaultModule,
     MatPaginatorModule,
     MatTableModule,
+    LayoutModule,
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25
