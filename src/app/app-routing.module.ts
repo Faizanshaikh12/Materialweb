@@ -44,11 +44,6 @@ const routes: Routes = [
   //   redirectTo: '/students',
   //   pathMatch: 'full'
   // },
-  // {
-  //   path: 'students',
-  //   component: StudentsComponent
-  // }
-
   {
     path: 'counter',
     loadChildren: () => import('./ngrx-counter/counter.module').then((m) => m.CounterModule)
@@ -56,6 +51,10 @@ const routes: Routes = [
   {
     path: 'posts',
     loadChildren: () => import('./ngrx-posts/post.module').then((m) => m.PostModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule)
   },
 ];
 

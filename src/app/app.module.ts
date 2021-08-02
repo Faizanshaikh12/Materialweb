@@ -38,10 +38,7 @@ import {StripePaymentComponent} from './components/stripe-payment/stripe-payment
 import {LayoutModule} from '@angular/cdk/layout';
 import {StoreModule} from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {appReducer} from './store/app.state';
-import {AngularFireModule} from '@angular/fire';
-import {environment} from '../environments/environment';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -89,9 +86,10 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireDatabaseModule,
     ReactiveFormsModule,
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -26,15 +26,16 @@
     "@angular/router": "~11.2.3",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "@ngrx/core": "^1.2.0",
+    "@ngrx/effects": "^12.3.0",
     "@ngrx/store": "^12.3.0",
     "@ngrx/store-devtools": "^12.3.0",
     "bootstrap": "^4.5.0",
+    "firebase": "^7.0 || ^8.0",
     "highcharts": "^9.1.2",
     "highcharts-angular": "^2.10.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.3",
-    "firebase": "^7.0 || ^8.0"
+    "zone.js": "~0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.2",
