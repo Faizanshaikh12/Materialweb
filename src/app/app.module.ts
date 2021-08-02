@@ -19,7 +19,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, NgForm} from '@angular/forms';
+import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {HomeComponent} from './home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormsComponent} from './components/forms/forms.component';
@@ -48,6 +48,9 @@ import {appReducer} from './store/app.state';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { AddPostComponent } from './ngrx-posts/add-post/add-post.component';
+import { PostComponent } from './ngrx-posts/post/post.component';
+import { EditPostComponent } from './ngrx-posts/edit-post/edit-post.component';
 
 
 // @ts-ignore
@@ -72,6 +75,9 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     CounterButtonComponent,
     CustomCounterInputComponent,
     PostsListComponent,
+    AddPostComponent,
+    PostComponent,
+    EditPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +110,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
       maxAge: 25
     }),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
