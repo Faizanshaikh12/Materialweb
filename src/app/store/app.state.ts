@@ -1,12 +1,14 @@
-import {counterReducer, CounterState} from '../ngrx-counter/state/counter.reducer';
-import {postReducer, PostState} from '../ngrx-posts/state/posts.reducer';
+import {SHARED_STATE_NAME} from '../ngrx-shared/shared.selector';
+import {SharedReducer, SharedState} from '../ngrx-shared/shared.reducer';
+import {AuthReducer, AuthState} from '../auth/state/auth.reducer';
+import {AUTH_STATE_NAME} from '../auth/state/auth.selector';
 
 export interface AppState{
-  counter: CounterState;
-  posts: PostState;
+  [SHARED_STATE_NAME]: SharedState;
+  [AUTH_STATE_NAME]: AuthState;
 }
 
 export const appReducer = {
-  counter: counterReducer,
-  posts: postReducer
+  [SHARED_STATE_NAME]: SharedReducer,
+  [AUTH_STATE_NAME]: AuthReducer,
 };

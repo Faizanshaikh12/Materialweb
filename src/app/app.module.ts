@@ -20,7 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './ngrx-shared/home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormsComponent} from './components/forms/forms.component';
 import {MatSelectModule} from '@angular/material/select';
@@ -39,6 +39,9 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {StoreModule} from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { LoadingSpinnerComponent } from './ngrx-shared/loading-spinner/loading-spinner.component';
+import {appReducer} from './store/app.state';
+import { HeaderComponent } from './ngrx-shared/header/header.component';
 
 
 
@@ -55,6 +58,8 @@ import { EffectsModule } from '@ngrx/effects';
     ImageUploadComponent,
     MultiplpInputComponent,
     StripePaymentComponent,
+    LoadingSpinnerComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,14 +87,12 @@ import { EffectsModule } from '@ngrx/effects';
     MatPaginatorModule,
     MatTableModule,
     LayoutModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireDatabaseModule,
     ReactiveFormsModule,
-    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

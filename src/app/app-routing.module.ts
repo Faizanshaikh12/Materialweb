@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './ngrx-shared/home/home.component';
 import {FormsComponent} from './components/forms/forms.component';
 import {DefaultComponent} from './layouts/default/default.component';
 import {DashboardComponent} from './modules/dashboard/dashboard.component';
@@ -44,6 +44,7 @@ const routes: Routes = [
   //   redirectTo: '/students',
   //   pathMatch: 'full'
   // },
+  {path: '', component: HomeComponent},
   {
     path: 'counter',
     loadChildren: () => import('./ngrx-counter/counter.module').then((m) => m.CounterModule)
