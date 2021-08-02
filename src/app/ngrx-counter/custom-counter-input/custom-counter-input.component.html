@@ -1,0 +1,9 @@
+<div>
+  {{channelName$ | async}}
+  <input type="text" class="form-control" placeholder="Enter Value" [(ngModel)]="value"/>
+  <button class="btn btn-primary" (click)="onAdd()">Add Counter</button>
+</div>
+
+<div>
+  <button class="btn btn-primary" (click)="onAddText()">Add Counter</button>
+</div>

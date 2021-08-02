@@ -36,27 +36,15 @@ import {ImageUploadComponent} from './components/image-upload/image-upload.compo
 import {MultiplpInputComponent} from './components/multiplp-input/multiplp-input.component';
 import {StripePaymentComponent} from './components/stripe-payment/stripe-payment.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import {CounterComponent} from './ngrx-counter/counter/counter.component';
-import {CounterOutputComponent} from './ngrx-counter/counter-output/counter-output.component';
-import {CounterButtonComponent} from './ngrx-counter/counter-button/counter-button.component';
 import {StoreModule} from '@ngrx/store';
-import {counterReducer} from './ngrx-counter/state/counter.reducer';
-import { CustomCounterInputComponent } from './ngrx-counter/custom-counter-input/custom-counter-input.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { PostsListComponent } from './ngrx-posts/posts-list/posts-list.component';
 import {appReducer} from './store/app.state';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import { AddPostComponent } from './ngrx-posts/add-post/add-post.component';
-import { PostComponent } from './ngrx-posts/post/post.component';
-import { EditPostComponent } from './ngrx-posts/edit-post/edit-post.component';
 
 
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,14 +58,6 @@ import { EditPostComponent } from './ngrx-posts/edit-post/edit-post.component';
     ImageUploadComponent,
     MultiplpInputComponent,
     StripePaymentComponent,
-    CounterComponent,
-    CounterOutputComponent,
-    CounterButtonComponent,
-    CustomCounterInputComponent,
-    PostsListComponent,
-    AddPostComponent,
-    PostComponent,
-    EditPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,7 +85,7 @@ import { EditPostComponent } from './ngrx-posts/edit-post/edit-post.component';
     MatPaginatorModule,
     MatTableModule,
     LayoutModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

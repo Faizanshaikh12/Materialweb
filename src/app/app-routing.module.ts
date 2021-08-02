@@ -13,7 +13,6 @@ import {PhotoBase64ComponentComponent} from './components/photo-base64-component
 import {ImageUploadComponent} from './components/image-upload/image-upload.component';
 import {MultiplpInputComponent} from './components/multiplp-input/multiplp-input.component';
 import {StripePaymentComponent} from './components/stripe-payment/stripe-payment.component';
-import {CounterComponent} from './ngrx-counter/counter/counter.component';
 import {PostComponent} from './ngrx-posts/post/post.component';
 import {AddPostComponent} from './ngrx-posts/add-post/add-post.component';
 import {EditPostComponent} from './ngrx-posts/edit-post/edit-post.component';
@@ -50,14 +49,13 @@ const routes: Routes = [
   //   component: StudentsComponent
   // }
 
-  {path: 'counter', component: CounterComponent},
+  {
+    path: 'counter',
+    loadChildren: () => import('./ngrx-counter/counter.module').then((m) => m.CounterModule)
+  },
   {
     path: 'posts',
-    component: PostComponent,
-    children: [
-      { path: 'addPost', component: AddPostComponent},
-      { path: 'editPost/:id', component: EditPostComponent},
-    ]
+    loadChildren: () => import('./ngrx-posts/post.module').then((m) => m.PostModule)
   },
 ];
 
