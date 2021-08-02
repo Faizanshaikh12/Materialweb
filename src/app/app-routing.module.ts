@@ -14,7 +14,9 @@ import {ImageUploadComponent} from './components/image-upload/image-upload.compo
 import {MultiplpInputComponent} from './components/multiplp-input/multiplp-input.component';
 import {StripePaymentComponent} from './components/stripe-payment/stripe-payment.component';
 import {CounterComponent} from './ngrx-counter/counter/counter.component';
-import {PostsListComponent} from './ngrx-posts/posts-list/posts-list.component';
+import {PostComponent} from './ngrx-posts/post/post.component';
+import {AddPostComponent} from './ngrx-posts/add-post/add-post.component';
+import {EditPostComponent} from './ngrx-posts/edit-post/edit-post.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent},
@@ -22,10 +24,9 @@ const routes: Routes = [
   // { path: 'login', component: LoginComponent},
   // { path: 'forms', component: FormsComponent},
   // { path: 'tables', component: DataTableComponent},
-  { path: 'image_upload', component: ImageUploadComponent},
-  { path: 'muti_input', component: MultiplpInputComponent},
-  { path: 'stripe_pay', component: StripePaymentComponent},
-  { path: 'counter', component: CounterComponent},
+  {path: 'image_upload', component: ImageUploadComponent},
+  {path: 'muti_input', component: MultiplpInputComponent},
+  {path: 'stripe_pay', component: StripePaymentComponent},
   // { path: 'base64', component: PhotoBase64ComponentComponent},
   // {
   //   path: '',
@@ -34,7 +35,7 @@ const routes: Routes = [
   //     path: '',
   //     component: DashboardComponent
   //   }, {
-  //     path: 'posts',
+  //     path: 'post',
   //     component: PostsComponent
   //   }]
   // }
@@ -48,6 +49,16 @@ const routes: Routes = [
   //   path: 'students',
   //   component: StudentsComponent
   // }
+
+  {path: 'counter', component: CounterComponent},
+  {
+    path: 'posts',
+    component: PostComponent,
+    children: [
+      { path: 'addPost', component: AddPostComponent},
+      { path: 'editPost/:id', component: EditPostComponent},
+    ]
+  },
 ];
 
 
