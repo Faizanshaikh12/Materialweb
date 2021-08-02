@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
 import {User} from '../../models/User';
-import {loginSuccess} from './auth.action';
+import {loginSuccess, signupSuccess} from './auth.action';
 
 export interface AuthState {
   user: User | null;
@@ -13,6 +13,12 @@ export const initialState: AuthState = {
 const _authReducer = createReducer(
   initialState,
   on(loginSuccess, (state, action) => {
+    return {
+      ...state,
+      user: action.user,
+    };
+  }),
+  on(signupSuccess, (state, action) => {
     return {
       ...state,
       user: action.user,

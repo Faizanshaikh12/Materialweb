@@ -9,10 +9,11 @@ import {AUTH_STATE_NAME} from './state/auth.selector';
 import {AuthReducer} from './state/auth.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {AuthEffects} from './state/auth.effects';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, SignupComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
