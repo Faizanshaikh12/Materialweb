@@ -16,6 +16,7 @@ import {StripePaymentComponent} from './components/stripe-payment/stripe-payment
 import {PostComponent} from './ngrx-posts/post/post.component';
 import {AddPostComponent} from './ngrx-posts/add-post/add-post.component';
 import {EditPostComponent} from './ngrx-posts/edit-post/edit-post.component';
+import {AuthGuard} from './services/auth.guard';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent},
@@ -51,7 +52,7 @@ const routes: Routes = [
   },
   {
     path: 'posts',
-    loadChildren: () => import('./ngrx-posts/post.module').then((m) => m.PostModule)
+    loadChildren: () => import('./ngrx-posts/post.module').then((m) => m.PostModule), canActivate: [AuthGuard]
   },
   {
     path: 'auth',
