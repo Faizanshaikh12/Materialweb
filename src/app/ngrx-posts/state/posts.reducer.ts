@@ -1,27 +1,26 @@
 import {Posts} from '../../models/posts';
 import {Action, createReducer, on} from '@ngrx/store';
-import {addPost, deletePost, updatePost} from './posts.action';
+import {addPostSuccess, deletePost, deletePostSuccess, loadPostSuccess, updatePost, updatePostSuccess} from './posts.action';
 
 export interface PostState {
   posts: Posts[];
 }
 
 export const initialState: PostState = {
-  posts: []
+  posts: null
 };
 
 // tslint:disable-next-line:variable-name
 const _postReducer = createReducer(
   initialState,
-  on(addPost, (state, action) => {
+  on(addPostSuccess, (state, action) => {
     const post = {...action.post};
-    post.id = (state.posts.length + 1).toString();
     return {
       ...state,
       posts: [...state.posts, post]
     };
   }),
-  on(updatePost, (state, action) => {
+  on(updatePostSuccess, (state, action) => {
     const updatedPosts = state.posts.map((post) => {
       return action.post.id === post.id ? action.post : post;
     });
@@ -30,13 +29,19 @@ const _postReducer = createReducer(
       posts: updatedPosts
     };
   }),
-  on(deletePost, (state, {id}) => {
+  on(deletePostSuccess, (state, {id}) => {
     const deletedPosts = state.posts.filter((post) => {
       return post.id !== id;
     });
     return {
       ...state,
       posts: deletedPosts
+    };
+  }),
+  on(loadPostSuccess, (state, action) => {
+    return {
+      ...state,
+      posts: action.post
     };
   })
 );

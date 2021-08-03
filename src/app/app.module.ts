@@ -42,6 +42,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoadingSpinnerComponent } from './ngrx-shared/loading-spinner/loading-spinner.component';
 import {appReducer} from './store/app.state';
 import { HeaderComponent } from './ngrx-shared/header/header.component';
+import {AuthEffects} from './auth/state/auth.effects';
 
 
 
@@ -88,7 +89,7 @@ import { HeaderComponent } from './ngrx-shared/header/header.component';
     MatTableModule,
     LayoutModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
