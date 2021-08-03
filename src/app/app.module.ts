@@ -18,7 +18,7 @@ import {LoginComponent} from './components/login/login.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {HomeComponent} from './ngrx-shared/home/home.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -37,13 +37,13 @@ import {MultiplpInputComponent} from './components/multiplp-input/multiplp-input
 import {StripePaymentComponent} from './components/stripe-payment/stripe-payment.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {StoreModule} from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-import { LoadingSpinnerComponent } from './ngrx-shared/loading-spinner/loading-spinner.component';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {EffectsModule} from '@ngrx/effects';
+import {LoadingSpinnerComponent} from './ngrx-shared/loading-spinner/loading-spinner.component';
 import {appReducer} from './store/app.state';
-import { HeaderComponent } from './ngrx-shared/header/header.component';
+import {HeaderComponent} from './ngrx-shared/header/header.component';
 import {AuthEffects} from './auth/state/auth.effects';
-
+import {AuthTokenInterceptor} from './services/AuthToken.interceptor';
 
 
 @NgModule({
@@ -95,7 +95,7 @@ import {AuthEffects} from './auth/state/auth.effects';
     }),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
