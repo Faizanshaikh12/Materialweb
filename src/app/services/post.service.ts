@@ -37,4 +37,8 @@ export class PostService {
     return this.http.delete(`https://authangular-07-default-rtdb.firebaseio.com/posts/${id}.json`);
   }
 
+  getPostById(id: string): Observable<Posts> {
+    return this.http.get<Posts>(`https://authangular-07-default-rtdb.firebaseio.com/posts/${id}.json`);
+  }
+
 }

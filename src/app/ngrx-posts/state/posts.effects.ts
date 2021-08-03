@@ -11,7 +11,8 @@ import {
   updatePost,
   updatePostSuccess
 } from './posts.action';
-import {map, mergeMap, switchMap} from 'rxjs/operators';
+import {filter, map, mergeMap, switchMap} from 'rxjs/operators';
+import {ROUTER_NAVIGATION, routerNavigatedAction, RouterNavigationAction} from '@ngrx/router-store';
 
 @Injectable()
 export class PostsEffects {
@@ -68,6 +69,24 @@ export class PostsEffects {
             return deletePostSuccess({id: action.id});
           })
         );
+      })
+    );
+  });
+
+  getSinglePost$ = createEffect(() => {
+    return this.acions$.pipe(
+      ofType(ROUTER_NAVIGATION),
+      filter((r: RouterNavigationAction) => {
+        return r.payload.routerState.url.startsWith('/posts/details');
+      }),
+      map((r: RouterNavigationAction) => {
+        return r.payload.routerState['params']['id'];
+      }),
+      switchMap((id) => {
+        return this.postService.getPostById(id).pipe(map((post) => {
+          const postData = [{...post, id}];
+          return loadPostSuccess({post: postData});
+        }));
       })
     );
   });

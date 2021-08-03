@@ -1,0 +1,11 @@
+<h3>Post Details</h3>
+<div *ngIf="post | async as postData">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{postData.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{postData.id}}</h6>
+      <p class="card-text">{{postData.description}}</p>
+      <a [routerLink]="['/posts']" class="card-link">Back to Post</a>
+    </div>
+  </div>
+</div>

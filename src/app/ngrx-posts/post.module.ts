@@ -12,6 +12,7 @@ import {postReducer} from './state/posts.reducer';
 import {POST_STATE_NAME} from './state/posts.selector';
 import {EffectsModule} from '@ngrx/effects';
 import {PostsEffects} from './state/posts.effects';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {PostsEffects} from './state/posts.effects';
     AddPostComponent,
     PostComponent,
     EditPostComponent,
+    SinglePostComponent,
   ],
   imports: [
     CommonModule,

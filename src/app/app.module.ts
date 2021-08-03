@@ -44,6 +44,8 @@ import {appReducer} from './store/app.state';
 import {HeaderComponent} from './ngrx-shared/header/header.component';
 import {AuthEffects} from './auth/state/auth.effects';
 import {AuthTokenInterceptor} from './services/AuthToken.interceptor';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import {CustomSerializer} from './store/router/custom-serializer';
 
 
 @NgModule({
@@ -94,6 +96,10 @@ import {AuthTokenInterceptor} from './services/AuthToken.interceptor';
       maxAge: 25
     }),
     ReactiveFormsModule,
+    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer,
+    })
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
