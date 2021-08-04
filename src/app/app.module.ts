@@ -46,6 +46,8 @@ import {AuthEffects} from './auth/state/auth.effects';
 import {AuthTokenInterceptor} from './services/AuthToken.interceptor';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import {CustomSerializer} from './store/router/custom-serializer';
+import { CountComponent } from './count/count.component';
+import { CountersComponent } from './count/counters/counters.component';
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import {CustomSerializer} from './store/router/custom-serializer';
     StripePaymentComponent,
     LoadingSpinnerComponent,
     HeaderComponent,
+    CountComponent,
+    CountersComponent,
   ],
   imports: [
     BrowserModule,

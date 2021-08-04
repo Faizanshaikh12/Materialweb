@@ -18,8 +18,8 @@
       <tbody>
       <tr *ngFor="let post of posts$ | async">
         <td>{{post.id}}</td>
-        <td>{{post.title}}</td>
-        <td>{{post.description}}</td>
+        <td style="word-break: break-all">{{post.title}}</td>
+        <td style="word-break: break-all">{{post.description}}</td>
         <td>
           <a class="btn btn-success mr-2" [routerLink]="['editPost', post.id]">Update</a>
           <button class="btn btn-danger" (click)="onDeletePost(post.id)">Delete</button>
@@ -33,5 +33,4 @@
   <div class="col-md-4">
     <router-outlet></router-outlet>
   </div>
-
 </div>

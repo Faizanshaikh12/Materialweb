@@ -1,0 +1,7 @@
+<div>
+  Couneter is: {{ myCount }}
+  <app-counters
+    [count]="myCount"
+    (update)="countChange($event)">
+  </app-counters>
+</div>

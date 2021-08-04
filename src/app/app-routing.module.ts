@@ -18,6 +18,7 @@ import {AddPostComponent} from './ngrx-posts/add-post/add-post.component';
 import {EditPostComponent} from './ngrx-posts/edit-post/edit-post.component';
 import {AuthGuard} from './services/auth.guard';
 import {SinglePostComponent} from './ngrx-posts/single-post/single-post.component';
+import {CountComponent} from './count/count.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'image_upload', component: ImageUploadComponent},
   {path: 'muti_input', component: MultiplpInputComponent},
   {path: 'stripe_pay', component: StripePaymentComponent},
+  {path: 'counters', component: CountComponent},
   // { path: 'base64', component: PhotoBase64ComponentComponent},
   // {
   //   path: '',

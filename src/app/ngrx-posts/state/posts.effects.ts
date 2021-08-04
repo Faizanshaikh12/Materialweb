@@ -11,23 +11,38 @@ import {
   updatePost,
   updatePostSuccess
 } from './posts.action';
-import {filter, map, mergeMap, switchMap} from 'rxjs/operators';
+import {filter, map, mergeMap, switchMap, withLatestFrom} from 'rxjs/operators';
 import {ROUTER_NAVIGATION, routerNavigatedAction, RouterNavigationAction} from '@ngrx/router-store';
+import {Update} from '@ngrx/entity';
+import {Posts} from '../../models/posts';
+import {AppState} from '../../store/app.state';
+import {Store} from '@ngrx/store';
+import {getPosts} from './posts.selector';
+import {of} from 'rxjs';
+import {dummyAction} from '../../auth/state/auth.action';
 
 @Injectable()
 export class PostsEffects {
-  constructor(private acions$: Actions, private postService: PostService) {
+  constructor(
+    private acions$: Actions,
+    private postService: PostService,
+    private store: Store<AppState>
+  ) {
   }
 
   loadPost$ = createEffect(() => {
     return this.acions$.pipe(
       ofType(loadPost),
-      mergeMap((action) => {
-        return this.postService.getPost().pipe(
-          map((post) => {
-            return loadPostSuccess({post});
-          })
-        );
+      withLatestFrom(this.store.select(getPosts)),
+      mergeMap(([action, posts]) => {
+        if (!posts.length || posts.length === 1) {
+          return this.postService.getPost().pipe(
+            map((post) => {
+              return loadPostSuccess({post});
+            })
+          );
+        }
+        return of(dummyAction());
       })
     );
   });
@@ -52,8 +67,13 @@ export class PostsEffects {
       switchMap((action) => {
         return this.postService.updatePost(action.post).pipe(
           map((data) => {
-            const post = {...action.post, id: data.name};
-            return updatePostSuccess({post: action.post});
+            const updatedPost: Update<Posts> = {
+              id: action.post.id,
+              changes: {
+                ...action.post,
+              }
+            };
+            return updatePostSuccess({post: updatedPost});
           })
         );
       })
@@ -82,11 +102,15 @@ export class PostsEffects {
       map((r: RouterNavigationAction) => {
         return r.payload.routerState['params']['id'];
       }),
-      switchMap((id) => {
-        return this.postService.getPostById(id).pipe(map((post) => {
-          const postData = [{...post, id}];
-          return loadPostSuccess({post: postData});
-        }));
+      withLatestFrom(this.store.select(getPosts)),
+      switchMap(([id, posts]) => {
+        if (!posts.length) {
+          return this.postService.getPostById(id).pipe(map((post) => {
+            const postData = [{...post, id}];
+            return loadPostSuccess({post: postData});
+          }));
+        }
+        return of(dummyAction());
       })
     );
   });

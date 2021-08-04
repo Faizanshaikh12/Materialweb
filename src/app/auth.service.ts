@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
@@ -12,9 +12,10 @@ export class AuthService {
   errorData: {};
   redirectUrl: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  create(data): Observable<any>{
+  create(data): Observable<any> {
     return this.http.post(this.baseUrl, data);
   }
 
@@ -38,5 +39,6 @@ export class AuthService {
   // login(data): Observable<any>{
   //   return this.http.post('http://localhost:8000/login/user', data);
   // }
-
 }
+
+
